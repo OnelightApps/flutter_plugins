@@ -23,7 +23,10 @@ dependencies:
   flutter:
     sdk: flutter
   html: ^0.15.0
-  video_player_android: ^2.2.17
+  video_player_android:
+    git:
+      url: https://github.com/OnelightApps/flutter_plugins.git
+      path: packages/video_player/video_player_android
   video_player_avfoundation:
     git:
       url: https://github.com/OnelightApps/flutter_plugins.git
