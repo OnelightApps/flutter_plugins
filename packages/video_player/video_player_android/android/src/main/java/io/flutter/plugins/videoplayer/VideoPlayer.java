@@ -136,9 +136,16 @@ final class VideoPlayer {
             TextureRegistry.SurfaceTextureEntry textureEntry,
             VideoPlayerOptions options,
             QueuingEventSink eventSink) {
+        this.context = context;
         this.eventChannel = eventChannel;
         this.textureEntry = textureEntry;
         this.options = options;
+
+        am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+
+        IntentFilter filter = new IntentFilter(
+                AudioManager.RINGER_MODE_CHANGED_ACTION);
+        context.registerReceiver(ringerModeReceiver, filter);
 
         setUpVideoPlayer(exoPlayer, eventSink);
     }
